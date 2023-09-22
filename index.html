@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Single Price Grid Component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+
+    button {
+      border: none !important;
+      outline: none !important;
+      cursor: pointer !important;
+
+    }
+
+
+    img,
+    ion-icon {
+      display: block;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--light-gray);
+      padding: 16px;
+    }
+
+
+
+
+
+    :root {
+      --opacity-05: .5;
+      --opacity-06: .6;
+      --opacity-07: .7;
+      --cyan: hsl(179, 62%, 43%);
+      --cyan-50: hsla(179, 62%, 43%, 0.9);
+      --bright-yellow: hsl(71, 73%, 54%);
+      --light-gray: hsl(204, 43%, 93%);
+      --grayish-blue: hsl(218, 22%, 67%);
+    }
+
+
+    .btn {
+      width: 100%;
+      height: 55px;
+      background-color: var(--bright-yellow);
+      color: var(--light-gray);
+      margin: auto;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all .3s ease-in;
+    }
+
+    .btn {
+      box-shadow: 0px 15px 30px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      font-size: 16px;
+      font-family: 'Karla', sans-serif;
+    }
+
+    .grid {
+      grid-template-areas:
+        "top"
+        "contentL"
+        "contentR";
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: 1fr;
+      display: grid;
+      max-width:375px;
+      border-radius: 15px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .grid>div {
+      padding: 30px;
+    }
+
+    .grid>div:nth-child(1) h2 {
+      color: var(--cyan);
+      margin-bottom: 25px;
+    }
+
+    .grid>div:nth-child(1) h3 {
+      margin-bottom: 15px !important;
+      color: var(--bright-yellow);
+    }
+
+    .grid>div:nth-child(1) p {
+      color: var(--grayish-blue);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .grid>div:nth-child(2) {
+      background-color: var(--cyan);
+    }
+
+    .grid>div:nth-child(3) {
+      background-color: var(--cyan-50);
+    }
+
+    .grid>div:nth-child(2),
+    .grid>div:nth-child(3) {
+      color: #fff;
+
+    }
+
+    .price {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .price+p {
+      opacity: .8;
+    }
+
+    .price div+div {
+      opacity: var(--opacity-05);
+    }
+
+    p+.btn {
+      margin-top: 24px;
+    }
+
+    .price>div:first-child {
+      font-size: 30px;
+      font-weight: 700;
+      margin-right: 15px;
+
+    }
+
+    :is(.fst-col, .scd-col) > *:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    .grid>div:nth-child(3) h3+p {
+      opacity: var(--opacity-06);
+      line-height: 1.5;
+      max-width: 75%;
+    }
+
+
+    @media (min-width:768px) {
+      .grid {
+
+        grid-template-areas: "top top"
+          "contentL contentR";
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr 1fr;
+        max-width: 768px;
+      }
+
+
+
+       .max-text {
+        max-width: 640px;
+       }
+
+
+
+
+
+      .grid>div {
+      padding: 48px;
+    }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="grid">
+      <div style="grid-area: top;">
+        <h2>Join our community</h2>
+        <h3>30-day, hassle-free money back guarantee</h3>
+        <p class="max-text">
+          Gain access to our full library of tutorials along with expert code reviews.
+          Perfect for any developers who are serious about honing their skills.
+        </p>
+      </div>
+      <div class="fst-col" style="grid-area: contentL;">
+        <h3>Monthly Subscription</h3>
+        <div class="price-subline">
+          <div class="price">
+            <div>&dollar;29</div>
+            <div> per month</div>
+          </div>
+          <p>Full access for less than &dollar;1 a day</p>
+        </div>
+        <div class="btn">Sign Up</div>
+      </div>
+      <div class="scd-col" style="grid-area: contentR;">
+        <h3>Why Us</h3>
+        <p>Tutorials by industry experts
+          Peer &amp; expert code review
+          Coding exercises
+          Access to our GitHub repos
+          Community forum
+          Flashcard decks
+          New videos every week</p>
+      </div>
+    </div>
+  </section>
